@@ -1,0 +1,19 @@
+body{
+    background-color: pink;
+    
+}
+
+
+h4{
+    border: 2px solid black;
+}
+
+div{
+    border: 3px solid red;
+}
+
+.bienvenida{
+    display: block;
+    border: 2px solid purple;
+    text-align: center;
+}

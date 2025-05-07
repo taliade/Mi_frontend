@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .contaner-padre {
+    display: flex;
+    flex-direction: row;
+    background-color: brown;
+    height: 250px;
+    flex-wrap: wrap-reverse;
+    justify-content: space-evenly;
+    padding-bottom: 10px;
+    border: 2px solid black;
+  }
+  
+  .hijo,
+  .hijo-2 {
+    display: flex;               /* NECESARIO para centrar con align-items y justify-content */
+    align-items: center;         /* Centrado vertical */
+    justify-content: center;     /* Centrado horizontal */
+    text-align: center;          /* Centrado del texto si hay varias líneas */
+    border-radius: 25px;
+    width: 200px;
+  }
+  
+  .hijo {
+    background-color: blueviolet;
+    color: white;
+    height: 200px;
+    border: 2px dotted white;
+  }
+  
+  .hijo-2 {
+    background-color: blue;
+    color: black;
+    height: 250px;
+    border: 2px solid white;
+  }

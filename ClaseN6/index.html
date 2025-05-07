@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pseudoclases CSS - Ejemplos explicativos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <h1>✨ Pseudoclases en CSS - Ejemplos con explicación</h1>
+
+  <section>
+    <h2>1. Pseudoclases básicas en enlaces</h2>
+    <p>Pasá el mouse sobre los enlaces o hacé clic para ver cómo cambian con <code>:hover</code> y <code>:active</code>. Visitá uno y recargá para ver <code>:visited</code>.</p>
+    <a href="https://www.google.com" target="_blank">Ir a Google</a><br>
+    <a href="https://www.wikipedia.org" target="_blank">Ir a Wikipedia</a><br>
+    <a href="https://www.vogue.com" target="_blank">vogue</a><br>
+    <a href="https://www.behance.net/" target="_blank">Behance</a><br><br>
+    <a href="https://www.leagueoflegends.com/es-es/" target="_blank">leagee flegends</a>
+  </section>
+
+<section>
+  <div id="abuelo">
+    <p>Párrafo 1</p>
+    <p>Párrafo 2</p>
+    <div class="padre">
+    <div class="hijo"><a title="Título hijo1">HIJO1</a></div>
+    <div class="hijo"><a>HIJO2</a></div>
+    <!-- <div class="hijo"><a>HIJO3</a></div> -->
+    </div>
+    <p>Párrafo 3</p>
+    <p>Párrafo 4</p>
+    <div class="padre">
+    <div class="hijo"><a title="Título hijo4">HIJO4</a></div>
+    <div class="hijo"><a>HIJO5</a></div>
+    <div class="hijo"><a>HIJO6</a></div>
+    </div>
+    <p>Párrafo 5</p>
+    <p>Párrafo 6</p>
+    </div>
+</section>
+
+  <section>
+    <h2>2. Pseudoclase <code>:not()</code></h2>
+    <p>Los <code>div</code> que <strong>NO</strong> tienen la clase <code>.padre</code> tienen padding y fondo gris.</p>
+
+    <div>Este div NO tiene clase padre</div>
+
+    <div class="padre">
+      Este div SÍ tiene clase padre (sin estilo especial)
+    </div>
+
+    <div>Otro div sin clase padre</div>
+  </section>
+
+  <section>
+    <h2>3. Pseudoclase <code>:nth-child(N)</code></h2>
+    <p>Se aplica un estilo al <strong>segundo hijo</strong> dentro de cada contenedor con clase <code>.padre</code>.</p>
+
+    <div class="padre">
+      <div class="hijo">Hijo 1</div>
+      <div class="hijo">Hijo 2 (estilizado con :nth-child(2))</div>
+      <div class="hijo">Hijo 3</div>
+    </div>
+
+    <div class="padre">
+      <div class="hijo">Hijo A</div>
+      <div class="hijo">Hijo B (estilizado con :nth-child(2))</div>
+      <div class="hijo">Hijo C</div>
+    </div>
+  </section>
+
+</body>
+</html>

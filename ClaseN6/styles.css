@@ -1,0 +1,94 @@
+/* ===== 1. PSEUDOCLASES BÁSICAS ===== */
+
+    /* :link se aplica a los enlaces que aún no fueron visitados   Comentar ctrl + k +c*/
+    /* a:link {
+        text-decoration: none;
+        color: #FFFF;
+        background-color: #140808;
+      } */
+  
+      /* :visited se aplica a los enlaces que el usuario ya visitó */
+      /* a:visited {
+        color: #d5d105;
+        background-color: aqua;
+      } */
+  
+      /* :hover se activa cuando el puntero del mouse está sobre el elemento */
+       /* a:hover {
+        font-weight: bold;
+        background-color: blue;
+        color: white;
+        text-decoration: underline;
+      } */
+   
+      /* :active se activa cuando el enlace está siendo clickeado */
+       /* a:active {
+        background-color: yellow;
+        color: black;
+      } */
+   
+      a:hover{ 
+        font-weight:bold; 
+        background-color:rgb(15, 15, 76); 
+        color:white;
+        text-decoration:none;
+        font-size: 20px;
+      }
+
+      a:active{ 
+        background-color:yellow; 
+        color:black; 
+      }
+      div:not(.padre){
+        padding-left:60px;
+        padding-right:60px;
+        margin: 30px;
+        
+        }
+
+
+
+
+
+
+
+
+
+      /* ===== 2. PSEUDOCLASE :not() ===== */
+      /* Aplicamos padding solo a los div que NO tengan la clase .padre */
+      div:not(.padre) {
+        padding-left: 40px;
+        padding-right: 40px;
+        background-color: #af0b0b;
+        margin-bottom: 10px;
+      }
+  
+      /* ===== 3. PSEUDOCLASE :nth-child(N) ===== */
+      /* Aplica estilo al segundo hijo de cada contenedor .padre */
+      .padre div:nth-child(3) {
+        font-weight: bold;
+        color: orange;
+      }
+  
+      /* Estilos visuales generales */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+  
+      section {
+        margin-bottom: 40px;
+      }
+  
+      h2 {
+        color: #333;
+      }
+  
+      .padre {
+        background-color: #dfe6e9;
+        padding: 10px;
+      }
+  
+      .hijo {
+        margin: 5px 0;
+      }

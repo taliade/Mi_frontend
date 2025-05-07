@@ -1,0 +1,92 @@
+/* Estilo general Mobile First */
+
+
+
+
+#grilla {
+    display: grid;
+    grid-template-areas: 
+      "header"
+      "nav"
+      "main"
+      "aside"
+      "footer";
+    grid-template-columns: 1 fr;
+    grid-template-rows: auto;
+    gap: 10px;
+    padding: 10px;
+  }
+  
+  .area {
+    background-color: lightgray;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.2rem;
+    border: 2px solid black;
+  }
+  
+
+  main {
+    background-image: 
+     
+      url('./IMG/fondo-main.webp');
+    background-size: cover;
+    background-position: center;
+    color: black; /* Se puede cambiar el color del texto */
+    font-weight: bold;
+    opacity: 0.8; /* Cambia la opacidad del fondo */
+    width: ;
+  }
+
+
+  /* Tablet */
+  @media screen and (min-width: 768px) {
+    #grilla {
+      grid-template-columns: 1fr 2fr;
+      grid-template-areas: 
+        "header header"
+        " main nav"
+        "aside main"
+        "footer footer";
+    
+    gap: 10px;
+    padding: 10px;
+  }
+    .area {
+      font-size: 1.5rem;
+    }
+    main {
+      background-image: 
+        url('./IMG/fondo-main.webp');
+      background-size: cover;
+      background-position: center;
+      color: black; /* Se puede cambiar el color del texto */
+      font-weight: bold;
+      opacity: 0.8; /* Cambia la opacidad del fondo */
+    }
+    nav {
+      background-color: lightblue;
+      width: 100px;
+      height: 300px;
+    }
+
+    footer{
+      background-color: lightgreen;
+      width: 700px;
+      height: 100px;
+    }
+
+
+  }
+  
+  /* Escritorio */
+  @media screen and (min-width: 1024px) {
+    #grilla {
+      grid-template-columns: 1fr 2fr 1fr;
+      grid-template-areas: 
+        "header header header"
+        "nav main aside"
+        "footer footer footer";
+    }
+  }
+  

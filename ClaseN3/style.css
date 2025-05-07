@@ -1,0 +1,24 @@
+body{
+    background-color: rgb(107, 202, 12);
+    background-image:url'../IMG/hand-dj.jpg';
+    
+}
+
+
+
+.sector-2{
+    background-color: black;
+    color:brown;
+    text-align: center;
+}
+
+p{
+    color: aliceblue;
+    background-color: blue;
+
+}
+
+#unico{
+    color: crimson;
+    background-color: blueviolet;
+}
