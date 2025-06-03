@@ -1,0 +1,15 @@
+{
+  "name": "clasen18",
+  "version": "1.0.0",
+  "main": "alumnos.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "talia Rodrigues",
+  "license": "ISC",
+  "description": " Descripcion del proyecto...",
+  "dependencies": {
+    "fs-extra": "^11.3.0"
+  }
+}
