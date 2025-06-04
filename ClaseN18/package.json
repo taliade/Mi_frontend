@@ -10,6 +10,8 @@
   "license": "ISC",
   "description": " Descripcion del proyecto...",
   "dependencies": {
-    "fs-extra": "^11.3.0"
+    "clasen18": "file:",
+    "fs-extra": "^11.3.0",
+    "readline-sync": "^1.4.10"
   }
 }

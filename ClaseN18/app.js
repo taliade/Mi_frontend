@@ -1,30 +1,20 @@
-// /// File System  llamar a modulos nativos
+// Importar módulos usando CommonJS
 
-const fs =require ('fs');
+/// Instalar npm install readline-sync
 
-// import alumnos = require ('alumnos');
+const fs = require('fs');
+const readlineSync = require('readline-sync');
+const { suma } = require('./suma');
+const { resta } = require('./resta');
+const { multiplicacion } = require('./multiplicacion');
+const { division } = require('./division');
 
-// let datos = fs.readFileSync( __dirname + './usaurios.txt', 'utf-8' );
+// Solicitar números al usuario
+let num1 = Number(readlineSync.question("Ingresa el primer numero: "));
+let num2 = Number(readlineSync.question("Ingresa el segundo numero: "));
 
-// console.log(datos);
-// let pantalla = 'Los alumnos son: ';
-
-// // console.log(alumnos);
-
-// // console.log('hola mundo!')
-
-
-// console.log(fs);
-
-import {suma} from './suma';
-import {resta} from './resta';
-import {multiplicacion} from './multiplicacion';
-import {division} from './division';
-
-        let num1 = Number( prompt("Ingresa el primer numero: "));
-        let num2 = Number( prompt("Ingresa el segundo numero: "));
-
-console.log( "Suma es : ", suma(num1,num2));
-console.log("Resta : " , resta(num1, num2));
-console.log( "Multiplicacion  es : ", multiplicacion(num1,num2));
-console.log("La division es : " , division(num1, num2));
+// Realizar operaciones
+console.log("Suma es:", suma(num1, num2));
+console.log("Resta:", resta(num1, num2));
+console.log("Multiplicacion es:", multiplicacion(num1, num2));
+console.log("La division es:", division(num1, num2));

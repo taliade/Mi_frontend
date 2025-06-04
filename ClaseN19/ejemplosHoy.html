@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 19 - Arrays, Strings y Métodos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            border-left: 5px solid #4ECDC4;
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section h2::before {
+            content: "🎯";
+            margin-right: 10px;
+        }
+        
+        .demo-button {
+            background: linear-gradient(45deg, #FF6B6B, #FF8E8E);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+        
+        .demo-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+        }
+        
+        .output {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            min-height: 50px;
+            border: 2px solid #34495e;
+        }
+        
+        .code-example {
+            background: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+        }
+        
+        .exercise {
+            background: linear-gradient(135deg, #ffeaa7, #fab1a0);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid #e17055;
+        }
+        
+        .exercise h3 {
+            color: #2d3436;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .method-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-top: 4px solid #4ECDC4;
+        }
+        
+        .method-card h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .clear-btn {
+            background: #95a5a6;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-left: 10px;
+        }
+        
+        .clear-btn:hover {
+            background: #7f8c8d;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Clase 19: Arrays, Strings y Métodos</h1>
+            <p>Demostración interactiva con ejemplos prácticos</p>
+        </div>
+        
+        <div class="content">
+            <!-- ARRAYS SECTION -->
+            <div class="section">
+                <h2>Arrays (Arreglos)</h2>
+                
+                <div class="highlight">
+                    <strong>¿Qué es un Array?</strong><br>
+                    Un Array es un objeto que almacena una lista de elementos. Puede contener números, strings, booleanos, objetos o incluso otros arrays.
+                </div>
+                
+                <div class="code-example">
+let primerArray = ['Pokemon', 'Pikachu', 1.6, true];
+// Índices:        0         1         2     3
+                </div>
+                
+                <button class="demo-button" onclick="demoArrayBasico()">🎯 Demo Array Básico</button>
+                <button class="demo-button" onclick="demoArrayLength()">📏 Demo .length</button>
+                <button class="clear-btn" onclick="clearOutput('output-arrays')">Limpiar</button>
+                
+                <div id="output-arrays" class="output">Haz clic en los botones para ver las demostraciones...</div>
+            </div>
+
+            <!-- MÉTODOS DE ARRAYS -->
+            <div class="section">
+                <h2>Métodos de Arrays</h2>
+                
+                <div class="grid">
+                    <div class="method-card">
+                        <h4>.push() - Agregar al final</h4>
+                        <p>Agrega elementos al final del array</p>
+                        <button class="demo-button" onclick="demoPush()">🔄 Probar</button>
+                    </div>
+                    
+                    <div class="method-card">
+                        <h4>.pop() - Quitar del final</h4>
+                        <p>Elimina el último elemento</p>
+                        <button class="demo-button" onclick="demoPop()">🔄 Probar</button>
+                    </div>
+                    
+                    <div class="method-card">
+                        <h4>.shift() - Quitar del inicio</h4>
+                        <p>Elimina el primer elemento</p>
+                        <button class="demo-button" onclick="demoShift()">🔄 Probar</button>
+                    </div>
+                    
+                    <div class="method-card">
+                        <h4>.unshift() - Agregar al inicio</h4>
+                        <p>Agrega elementos al principio</p>
+                        <button class="demo-button" onclick="demoUnshift()">🔄 Probar</button>
+                    </div>
+                    
+                    <div class="method-card">
+                        <h4>.join() - Unir elementos</h4>
+                        <p>Une elementos con un separador</p>
+                        <button class="demo-button" onclick="demoJoin()">🔄 Probar</button>
+                    </div>
+                    
+                    <div class="method-card">
+                        <h4>.indexOf() - Buscar elemento</h4>
+                        <p>Encuentra la posición de un elemento</p>
+                        <button class="demo-button" onclick="demoIndexOf()">🔄 Probar</button>
+                    </div>
+                </div>
+                
+                <button class="clear-btn" onclick="clearOutput('output-methods')">Limpiar</button>
+                <div id="output-methods" class="output">Selecciona un método para ver su demostración...</div>
+            </div>
+
+            <!-- STRINGS SECTION -->
+            <div class="section">
+                <h2>Strings (Cadenas de texto)</h2>
+                
+                <div class="highlight">
+                    <strong>Los strings son como arrays de caracteres</strong><br>
+                    Cada carácter tiene un índice, empezando desde 0.
+                </div>
+                
+                <div class="code-example">
+let saludo = 'Bienvenidas chicas!';
+//           0123456789...
+console.log(saludo[5]); // 'e'
+                </div>
+                
+                <div class="grid">
+                    <div class="method-card">
+                        <h4>.length - Longitud</h4>
+                        <p>Cuenta caracteres (incluye espacios)</p>
+                        <button class="demo-button" onclick="demoStringLength()">🔄 Probar</button>
+                    </div>
+                    
+                    <div class="method-card">
+                        <h4>.indexOf() - Buscar texto</h4>
+                        <p>Encuentra posición de una palabra</p>
+                        <button class="demo-button" onclick="demoStringIndexOf()">🔄 Probar</button>
+                    </div>
+                    
+                    <div class="method-card">
+                        <h4>.slice() - Cortar texto</h4>
+                        <p>Extrae una parte del string</p>
+                        <button class="demo-button" onclick="demoSlice()">🔄 Probar</button>
+                    </div>
+                    
+                    <div class="method-card">
+                        <h4>.trim() - Quitar espacios</h4>
+                        <p>Elimina espacios al inicio y final</p>
+                        <button class="demo-button" onclick="demoTrim()">🔄 Probar</button>
+                    </div>
+                    
+                    <div class="method-card">
+                        <h4>.split() - Dividir texto</h4>
+                        <p>Convierte string en array</p>
+                        <button class="demo-button" onclick="demoSplit()">🔄 Probar</button>
+                    </div>
+                    
+                    <div class="method-card">
+                        <h4>.replace() - Reemplazar</h4>
+                        <p>Cambia una parte por otra</p>
+                        <button class="demo-button" onclick="demoReplace()">🔄 Probar</button>
+                    </div>
+                </div>
+                
+                <button class="clear-btn" onclick="clearOutput('output-strings')">Limpiar</button>
+                <div id="output-strings" class="output">Selecciona un método de string para ver su demostración...</div>
+            </div>
+
+            <!-- EJERCICIOS PRÁCTICOS -->
+            <div class="section">
+                <h2>🏃‍♀️ Ejercicios Prácticos</h2>
+                
+                <div class="exercise">
+                    <h3>Ejercicio 1: Formar una oración</h3>
+                    <p>Convertir un array de palabras en una oración completa</p>
+                    <button class="demo-button" onclick="ejercicio1()">▶️ Ejecutar</button>
+                </div>
+                
+                <div class="exercise">
+                    <h3>Ejercicio 2: Eliminar tarea completada</h3>
+                    <p>Remover la última tarea del array (ya fue realizada)</p>
+                    <button class="demo-button" onclick="ejercicio2()">▶️ Ejecutar</button>
+                </div>
+                
+                <div class="exercise">
+                    <h3>Ejercicio 3: Agregar nuevas tareas</h3>
+                    <p>Añadir dos tareas nuevas al array</p>
+                    <button class="demo-button" onclick="ejercicio3()">▶️ Ejecutar</button>
+                </div>
+                
+                <div class="exercise">
+                    <h3>Ejercicio 4: Quitar primera tarea</h3>
+                    <p>Eliminar la primera tarea de la lista</p>
+                    <button class="demo-button" onclick="ejercicio4()">▶️ Ejecutar</button>
+                </div>
+                
+                <div class="exercise">
+                    <h3>Ejercicio 5: Contar caracteres</h3>
+                    <p>Mostrar la cantidad de caracteres de una frase</p>
+                    <button class="demo-button" onclick="ejercicio5()">▶️ Ejecutar</button>
+                </div>
+                
+                <button class="clear-btn" onclick="clearOutput('output-exercises')">Limpiar</button>
+                <div id="output-exercises" class="output">Ejecuta los ejercicios para ver los resultados...</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Variables globales para los ejercicios
+        let coloresDemo = ['Rojo', 'Azul'];
+        let tareas = [
+            {
+                nombre: 'Regar',
+                lugar: 'Patio',
+                tiempo: 20
+            },
+            {
+                nombre: 'Compras',
+                lugar: 'Supermercado',
+                tiempo: 60
+            },
+            {
+                nombre: 'Hacer pastafrola',
+                lugar: 'Cocina',
+                tiempo: 60
+            }
+        ];
+
+        function clearOutput(elementId) {
+            document.getElementById(elementId).textContent = 'Output limpiado. Ejecuta una demostración...';
+        }
+
+        function appendOutput(elementId, content) {
+            const output = document.getElementById(elementId);
+            output.textContent += content + '\n';
+        }
+
+        function setOutput(elementId, content) {
+            document.getElementById(elementId).textContent = content;
+        }
+
+        // === DEMOS DE ARRAYS ===
+        function demoArrayBasico() {
+            let primerArray = ['Pokemon', 'Pikachu', 1.6, true];
+            let output = `🎯 DEMO ARRAY BÁSICO\n`;
+            output += `let primerArray = ['Pokemon', 'Pikachu', 1.6, true];\n\n`;
+            output += `Array completo: ${JSON.stringify(primerArray)}\n`;
+            output += `Primer elemento (índice 0): ${primerArray[0]}\n`;
+            output += `Segundo elemento (índice 1): ${primerArray[1]}\n`;
+            output += `Tercer elemento (índice 2): ${primerArray[2]}\n`;
+            output += `Cuarto elemento (índice 3): ${primerArray[3]}\n`;
+            setOutput('output-arrays', output);
+        }
+
+        function demoArrayLength() {
+            let primerArray = ['Pokemon', 'Pikachu', 1.6, true];
+            let output = `📏 DEMO .length\n`;
+            output += `let primerArray = ['Pokemon', 'Pikachu', 1.6, true];\n`;
+            output += `let total = primerArray.length;\n\n`;
+            output += `Cantidad de elementos: ${primerArray.length}\n`;
+            setOutput('output-arrays', output);
+        }
+
+        // === DEMOS DE MÉTODOS DE ARRAYS ===
+        function demoPush() {
+            let colores = ['Rojo', 'Azul'];
+            let output = `🔄 DEMO .push()\n`;
+            output += `let colores = ['Rojo', 'Azul'];\n`;
+            output += `Array inicial: ${JSON.stringify(colores)}\n\n`;
+            
+            colores.push('Amarillo');
+            output += `colores.push('Amarillo');\n`;
+            output += `Resultado: ${JSON.stringify(colores)}\n\n`;
+            
+            colores.push('Verde', 'Violeta');
+            output += `colores.push('Verde', 'Violeta');\n`;
+            output += `Resultado final: ${JSON.stringify(colores)}`;
+            
+            setOutput('output-methods', output);
+        }
+
+        function demoPop() {
+            let colores = ['Rojo', 'Azul', 'Amarillo'];
+            let output = `🔄 DEMO .pop()\n`;
+            output += `let colores = ['Rojo', 'Azul', 'Amarillo'];\n`;
+            output += `Array inicial: ${JSON.stringify(colores)}\n\n`;
+            
+            let ultimoColor = colores.pop();
+            output += `let ultimoColor = colores.pop();\n`;
+            output += `Elemento eliminado: ${ultimoColor}\n`;
+            output += `Array resultante: ${JSON.stringify(colores)}`;
+            
+            setOutput('output-methods', output);
+        }
+
+        function demoShift() {
+            let colores = ['Rojo', 'Azul', 'Amarillo'];
+            let output = `🔄 DEMO .shift()\n`;
+            output += `let colores = ['Rojo', 'Azul', 'Amarillo'];\n`;
+            output += `Array inicial: ${JSON.stringify(colores)}\n\n`;
+            
+            let primerColor = colores.shift();
+            output += `let primerColor = colores.shift();\n`;
+            output += `Elemento eliminado: ${primerColor}\n`;
+            output += `Array resultante: ${JSON.stringify(colores)}`;
+            
+            setOutput('output-methods', output);
+        }
+
+        function demoUnshift() {
+            let colores = ['Rojo', 'Azul', 'Amarillo'];
+            let output = `🔄 DEMO .unshift()\n`;
+            output += `let colores = ['Rojo', 'Azul', 'Amarillo'];\n`;
+            output += `Array inicial: ${JSON.stringify(colores)}\n\n`;
+            
+            colores.unshift('Violeta');
+            output += `colores.unshift('Violeta');\n`;
+            output += `Resultado: ${JSON.stringify(colores)}\n\n`;
+            
+            colores.unshift('Naranja', 'Rosa');
+            output += `colores.unshift('Naranja', 'Rosa');\n`;
+            output += `Resultado final: ${JSON.stringify(colores)}`;
+            
+            setOutput('output-methods', output);
+        }
+
+        function demoJoin() {
+            let colores = ['Rojo', 'Azul', 'Amarillo'];
+            let output = `🔄 DEMO .join()\n`;
+            output += `let colores = ['Rojo', 'Azul', 'Amarillo'];\n\n`;
+            
+            let stringColores1 = colores.join();
+            output += `colores.join(): "${stringColores1}"\n`;
+            
+            let stringColores2 = colores.join(' - ');
+            output += `colores.join(' - '): "${stringColores2}"\n`;
+            
+            let stringColores3 = colores.join(' y ');
+            output += `colores.join(' y '): "${stringColores3}"`;
+            
+            setOutput('output-methods', output);
+        }
+
+        function demoIndexOf() {
+            let colores = ['Rojo', 'Azul', 'Amarillo'];
+            let output = `🔄 DEMO .indexOf()\n`;
+            output += `let colores = ['Rojo', 'Azul', 'Amarillo'];\n\n`;
+            
+            output += `colores.indexOf('Verde'): ${colores.indexOf('Verde')} (no encontrado)\n`;
+            output += `colores.indexOf('Azul'): ${colores.indexOf('Azul')}\n`;
+            output += `colores.indexOf('Amarillo'): ${colores.indexOf('Amarillo')}\n`;
+            output += `colores.indexOf('Rojo'): ${colores.indexOf('Rojo')}`;
+            
+            setOutput('output-methods', output);
+        }
+
+        // === DEMOS DE STRINGS ===
+        function demoStringLength() {
+            let saludo = 'Bienvenidas chicas!';
+            let output = `📏 DEMO String .length\n`;
+            output += `let saludo = 'Bienvenidas chicas!';\n`;
+            output += `let total = saludo.length;\n\n`;
+            output += `Texto: "${saludo}"\n`;
+            output += `Cantidad de caracteres: ${saludo.length}`;
+            
+            setOutput('output-strings', output);
+        }
+
+        function demoStringIndexOf() {
+            let saludo = 'Bienvenidas chicas!';
+            let output = `🔍 DEMO String .indexOf()\n`;
+            output += `let saludo = 'Bienvenidas chicas!';\n\n`;
+            
+            output += `saludo.indexOf('chicas'): ${saludo.indexOf('chicas')}\n`;
+            output += `saludo.indexOf('Bien'): ${saludo.indexOf('Bien')}\n`;
+            output += `saludo.indexOf('hola'): ${saludo.indexOf('hola')} (no encontrado)`;
+            
+            setOutput('output-strings', output);
+        }
+
+        function demoSlice() {
+            let saludo = 'Bienvenidas chicas!';
+            let output = `✂️ DEMO .slice()\n`;
+            output += `let saludo = 'Bienvenidas chicas!';\n\n`;
+            
+            output += `saludo.slice(5, 11): "${saludo.slice(5, 11)}"\n`;
+            output += `saludo.slice(0, 4): "${saludo.slice(0, 4)}"\n`;
+            output += `saludo.slice(12): "${saludo.slice(12)}" (desde posición 12 hasta el final)`;
+            
+            setOutput('output-strings', output);
+        }
+
+        function demoTrim() {
+            let saludo = '   Bienvenidas chicas!   ';
+            let output = `🧹 DEMO .trim()\n`;
+            output += `let saludo = '   Bienvenidas chicas!   ';\n\n`;
+            
+            output += `Texto original: "${saludo}"\n`;
+            output += `Longitud original: ${saludo.length} caracteres\n\n`;
+            
+            let sinEspacios = saludo.trim();
+            output += `saludo.trim(): "${sinEspacios}"\n`;
+            output += `Longitud después del trim: ${sinEspacios.length} caracteres`;
+            
+            setOutput('output-strings', output);
+        }
+
+        function demoSplit() {
+            let saludo = 'Bienvenidas chicas!';
+            let output = `🔪 DEMO .split()\n`;
+            output += `let saludo = 'Bienvenidas chicas!';\n\n`;
+            
+            let division1 = saludo.split(' ');
+            output += `saludo.split(' '): ${JSON.stringify(division1)}\n`;
+            
+            let division2 = saludo.split('');
+            output += `saludo.split(''): [${division2.slice(0, 10).join(', ')}, ...] (cada carácter)\n`;
+            
+            let division3 = saludo.split('a');
+            output += `saludo.split('a'): ${JSON.stringify(division3)}`;
+            
+            setOutput('output-strings', output);
+        }
+
+        function demoReplace() {
+            let saludo = 'Bienvenidas chicas!';
+            let output = `🔄 DEMO .replace()\n`;
+            output += `let saludo = 'Bienvenidas chicas!';\n\n`;
+            
+            let reemplazo1 = saludo.replace('chicas', 'al curso');
+            output += `saludo.replace('chicas', 'al curso'): "${reemplazo1}"\n`;
+            
+            let reemplazo2 = saludo.replace('Bienvenidas', 'Hola');
+            output += `saludo.replace('Bienvenidas', 'Hola'): "${reemplazo2}"`;
+            
+            setOutput('output-strings', output);
+        }
+
+        // === EJERCICIOS PRÁCTICOS ===
+        function ejercicio1() {
+            let palabras = ["Cada","minuto","que","pasa","es","otra","oportunidad","de","seguir","cambiando."];
+            let output = `🏃‍♀️ EJERCICIO 1: Formar una oración\n`;
+            output += `let palabras = ${JSON.stringify(palabras)};\n\n`;
+            
+            let oracion = palabras.join(' ');
+            output += `let oracion = palabras.join(' ');\n`;
+            output += `Resultado: "${oracion}"`;
+            
+            setOutput('output-exercises', output);
+        }
+
+        function ejercicio2() {
+            let tareasCopia = [...tareas]; // Copia para no modificar el original
+            let output = `🏃‍♀️ EJERCICIO 2: Eliminar tarea completada\n`;
+            output += `Tareas iniciales: ${tareasCopia.length} tareas\n\n`;
+            
+            let tareaCompletada = tareasCopia.pop();
+            output += `Tarea completada y eliminada:\n`;
+            output += `- Nombre: ${tareaCompletada.nombre}\n`;
+            output += `- Lugar: ${tareaCompletada.lugar}\n`;
+            output += `- Tiempo: ${tareaCompletada.tiempo} minutos\n\n`;
+            output += `Tareas restantes: ${tareasCopia.length}`;
+            
+            setOutput('output-exercises', output);
+        }
+
+        function ejercicio3() {
+            let tareasCopia = [...tareas];
+            tareasCopia.pop(); // Eliminamos la última como en el ejercicio anterior
+            
+            let output = `🏃‍♀️ EJERCICIO 3: Agregar nuevas tareas\n`;
+            output += `Tareas antes de agregar: ${tareasCopia.length}\n\n`;
+            
+            let nuevaTarea1 = {
+                nombre: 'Estudiar JavaScript',
+                lugar: 'Escritorio',
+                tiempo: 90
+            };
+            
+            let nuevaTarea2 = {
+                nombre: 'Hacer ejercicio',
+                lugar: 'Gimnasio',
+                tiempo: 45
+            };
+            
+            tareasCopia.push(nuevaTarea1, nuevaTarea2);
+            
+            output += `Nuevas tareas agregadas:\n`;
+            output += `1. ${nuevaTarea1.nombre} - ${nuevaTarea1.lugar} (${nuevaTarea1.tiempo} min)\n`;
+            output += `2. ${nuevaTarea2.nombre} - ${nuevaTarea2.lugar} (${nuevaTarea2.tiempo} min)\n\n`;
+            output += `Total de tareas ahora: ${tareasCopia.length}`;
+            
+            setOutput('output-exercises', output);
+        }
+
+        function ejercicio4() {
+            let tareasCopia = [...tareas];
+            let output = `🏃‍♀️ EJERCICIO 4: Quitar primera tarea\n`;
+            output += `Tareas iniciales: ${tareasCopia.length}\n\n`;
+            
+            let primeraTarea = tareasCopia.shift();
+            output += `Primera tarea eliminada:\n`;
+            output += `- Nombre: ${primeraTarea.nombre}\n`;
+            output += `- Lugar: ${primeraTarea.lugar}\n`;
+            output += `- Tiempo: ${primeraTarea.tiempo} minutos\n\n`;
+            output += `Tareas restantes: ${tareasCopia.length}\n`;
+            output += `Nueva primera tarea: ${tareasCopia[0].nombre}`;
+            
+            setOutput('output-exercises', output);
+        }
+
+        function ejercicio5() {
+            let frase = "JavaScript es increíble para programar aplicaciones web modernas";
+            let output = `🏃‍♀️ EJERCICIO 5: Contar caracteres\n`;
+            output += `let frase = "${frase}";\n\n`;
+            output += `Cantidad de caracteres: ${frase.length}\n`;
+            output += `Cantidad de palabras: ${frase.split(' ').length}\n`;
+            output += `Primera palabra: "${frase.split(' ')[0]}"\n`;
+            output += `Última palabra: "${frase.split(' ').pop()}"`;
+            
+            setOutput('output-exercises', output);
+        }
+
+        // Mensaje inicial
+        window.onload = function() {
+            setOutput('output-arrays', '¡Bienvenidos a la demostración interactiva!\nHaz clic en los botones para ver los ejemplos en acción. 🚀');
+        }
+    </script>
+</body>
+</html>
