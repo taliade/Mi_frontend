@@ -1,0 +1,399 @@
+/* General Styles */
+body {
+    font-family: 'Quicksand', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #555;
+    background-color: #fce4ec; /* Rosa pastel muy suave */
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    color: #a7779f; /* Un tono de rosa más intenso para los títulos */
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section-padded {
+    padding: 80px 0;
+}
+
+.light-bg {
+    background-color: #f8f8f8; /* Un blanco roto suave */
+}
+
+/* Header */
+header {
+    background-color: #ffe0f0; /* Rosa pastel */
+    color: #a7779f;
+    padding: 20px 0;
+    border-bottom: 3px solid #ffb3d9; /* Borde más oscuro */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    color: #a7779f;
+}
+
+header h1 .fa-cat {
+    margin-left: 10px;
+    color: #fff; /* Blanco para el icono del gato */
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    transition: transform 0.3s ease-in-out; /* Para la animación del menú hamburguesa */
+}
+
+header nav ul li {
+    margin-left: 30px;
+}
+
+header nav ul li a {
+    color: #a7779f;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1em;
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    background-color: #ffb3d9;
+    color: #fff;
+}
+
+/* Burger Menu for Mobile */
+.burger {
+    display: none; /* Oculto por defecto en pantallas grandes */
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: #a7779f;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Hero Section (Banner) */
+.hero {
+    background: url('https://via.placeholder.com/1500x600/b3e0f0/ffffff?text=Tu+banner+de+bienvenida') no-repeat center center/cover; /* Celeste pastel de fondo para el banner */
+    color: #a7779f;
+    text-align: center;
+    padding: 150px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.4); /* Capa translúcida para que el texto resalte */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h2 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    color: #a7779f;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.hero p {
+    font-size: 1.5em;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #a7779f;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Product Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.product-item {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.product-item h3 {
+    color: #8c6a8f; /* Un tono de rosa/púrpura para los nombres de productos */
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+.product-item p {
+    color: #666;
+    font-size: 1.1em;
+}
+
+/* Contact Form */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #a7779f;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: calc(100% - 20px);
+    padding: 12px 10px;
+    border: 1px solid #ffb3d9;
+    border-radius: 8px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1em;
+    color: #555;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: #a7779f;
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 15px 25px;
+    background-color: #ffb3d9; /* Rosa pastel del botón */
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.2em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #a7779f; /* Rosa/púrpura más oscuro al pasar el mouse */
+    transform: translateY(-3px);
+}
+
+/* Footer */
+footer {
+    background-color: #ffe0f0; /* Rosa pastel */
+    color: #a7779f;
+    text-align: center;
+    padding: 40px 0;
+    margin-top: 50px;
+    border-top: 3px solid #ffb3d9;
+}
+
+footer p {
+    margin: 0 0 15px 0;
+    font-size: 0.95em;
+}
+
+.social-links {
+    margin-bottom: 20px;
+}
+
+.social-links a {
+    color: #a7779f;
+    font-size: 1.8em;
+    margin: 0 15px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #ff85c2; /* Un rosa más vibrante al pasar el mouse */
+}
+
+/* =======================================
+   MEDIA QUERIES FOR RESPONSIVENESS
+   ======================================= */
+
+/* Small devices (phones, 600px and down) */
+@media screen and (max-width: 768px) {
+    header .container {
+        flex-direction: column; /* Apila el título y la navegación */
+        align-items: flex-start; /* Alinea los elementos a la izquierda */
+    }
+
+    header h1 {
+        font-size: 2em;
+        margin-bottom: 15px;
+    }
+
+    /* Oculta el menú de navegación por defecto */
+    .nav-links {
+        position: fixed;
+        right: 0;
+        top: 0;
+        height: 100vh;
+        width: 60%; /* Ancho del menú desplegable */
+        background-color: #ffe0f0; /* Fondo del menú */
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        transform: translateX(100%); /* Oculto a la derecha */
+        z-index: 10;
+    }
+
+    .nav-links li {
+        margin: 0; /* Elimina márgenes laterales */
+        opacity: 0; /* Oculta los elementos del menú */
+    }
+
+    .nav-links.nav-active {
+        transform: translateX(0%); /* Muestra el menú */
+    }
+
+    .burger {
+        display: block; /* Muestra el icono de hamburguesa */
+        position: absolute;
+        top: 25px;
+        right: 20px;
+        z-index: 20; /* Asegura que esté por encima del menú */
+    }
+
+    /* Animación del icono de hamburguesa */
+    .burger.toggle .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .burger.toggle .line2 {
+        opacity: 0;
+    }
+    .burger.toggle .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    /* Hero section */
+    .hero {
+        padding: 100px 20px;
+    }
+
+    .hero h2 {
+        font-size: 2.5em;
+    }
+
+    .hero p {
+        font-size: 1.2em;
+    }
+
+    /* Sections padding */
+    .section-padded {
+        padding: 50px 0;
+    }
+
+    /* Product Grid */
+    .product-grid {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+        gap: 20px;
+    }
+
+    .product-item {
+        padding: 20px;
+    }
+
+    /* Contact Form */
+    .contact-form {
+        padding: 25px;
+    }
+
+    /* Footer */
+    footer {
+        padding: 25px 0;
+    }
+
+    .social-links a {
+        font-size: 1.5em;
+        margin: 0 10px;
+    }
+}
+
+/* Animations for nav links (optional, but nice for mobile menu) */
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.nav-links.nav-active li {
+    animation: navLinkFade 0.5s ease forwards;
+}
+
+.nav-links.nav-active li:nth-child(1) {
+    animation-delay: 0.1s;
+}
+.nav-links.nav-active li:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.nav-links.nav-active li:nth-child(3) {
+    animation-delay: 0.3s;
+}
+.nav-links.nav-active li:nth-child(4) {
+    animation-delay: 0.4s;
+}
