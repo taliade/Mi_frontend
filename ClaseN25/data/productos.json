@@ -1,0 +1,11 @@
+{
+sugerencias": [
+        {
+        "id": 1,
+        "nombre": "NotebookLM",
+        "descripcion": "NotebookLM es un cuaderno de notas inteligente que utiliza IA para ayudarte a organizar y resumir información.",
+        "precio": 0,
+        "imagen": "https://learnprompting.org/blog/notebooklm/NotebookLM_Image_11.png"
+        }
+    ]
+}
